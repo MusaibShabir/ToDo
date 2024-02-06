@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
+    <string name="important">Mark as Important</string>
+    <string name="add_task_title">Add Task Title</string>
+    <string name="add_task">Add Task</string>
+    <string name="todo_main">Todo</string>
+    <string name="empty_screen">No Tasks 😇</string>
+</resources>
