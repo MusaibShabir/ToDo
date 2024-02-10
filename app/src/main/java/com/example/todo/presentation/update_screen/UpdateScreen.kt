@@ -63,7 +63,7 @@ fun UpdateScreen(
         topBar = {
             TopAppBar(title = {
                 Text(
-                    text = "Update Todo",
+                    text = stringResource(id = R.string.update_todo),
                     style = MaterialTheme.typography.headlineSmall
                 )
                 
@@ -96,7 +96,7 @@ fun UpdateScreen(
                 modifier = Modifier.fillMaxWidth(.9f),
                 label = {
                     Text(
-                        text ="Task Title",
+                        text = stringResource(id = R.string.task_title),
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -123,7 +123,7 @@ fun UpdateScreen(
                 modifier = Modifier.fillMaxWidth(.9f),
                 label = {
                     Text(
-                        text ="Task",
+                        text = stringResource(id = R.string.task),
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -170,7 +170,7 @@ fun UpdateScreen(
                 colors = ButtonDefaults.buttonColors(ButtonColor)
             ) {
                 Text(
-                    text = "SaveTask",
+                    text = stringResource(id = R.string.save_task),
                     fontSize = 16.sp
                 )
             }

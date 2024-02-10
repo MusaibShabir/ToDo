@@ -7,4 +7,8 @@
     <string name="add_task">Add Task</string>
     <string name="todo_main">Todo</string>
     <string name="empty_screen">No Tasks 😇</string>
+    <string name="update_todo">Update Todo</string>
+    <string name="task_title">Task Title</string>
+    <string name="task">Task</string>
+    <string name="save_task">Save Task</string>
 </resources>
