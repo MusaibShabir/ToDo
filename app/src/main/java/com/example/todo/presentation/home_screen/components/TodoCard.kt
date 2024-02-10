@@ -28,8 +28,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.todo.R
 import com.example.todo.domain.model.Todo
 import com.example.todo.ui.theme.ButtonColor
 import com.example.todo.ui.theme.NonPrimary
@@ -131,7 +133,7 @@ fun TodoCard(
                     )
                     Spacer(modifier = modifier.width(8.dp))
                     Text(
-                        text = "Done",
+                        text = stringResource(id = R.string.done),
                         modifier = Modifier,
                         color = Color.White,
                         style = MaterialTheme.typography.labelLarge,

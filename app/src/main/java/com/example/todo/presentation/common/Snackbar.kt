@@ -17,7 +17,7 @@ fun mySnackbar(
     scope.launch {
         snackbarHostState.currentSnackbarData?.dismiss()
         val snackbarResult: SnackbarResult = snackbarHostState.showSnackbar(
-            message = msg, // Invoke the lambda to get the string
+            message = msg,
             actionLabel = actionLabel,
             duration = SnackbarDuration.Short
         )

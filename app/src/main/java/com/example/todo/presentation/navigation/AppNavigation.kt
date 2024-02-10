@@ -52,8 +52,8 @@ fun AppNavigation(mainViewModel: MainViewModel) {
                     animationSpec = tween(300)
                 )
             }
-        ) { navbackStackEntery ->
-            navbackStackEntery.arguments?.getInt("id").let { id ->
+        ) { navbarStackEnter ->
+            navbarStackEnter.arguments?.getInt("id").let { id ->
                 UpdateScreen(
                     id = id!!,
                     mainViewModel = mainViewModel,
