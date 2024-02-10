@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -17,16 +16,13 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.CheckboxColors
 import androidx.compose.material3.CheckboxDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -38,7 +34,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -49,10 +44,12 @@ import com.example.todo.R
 import com.example.todo.domain.model.Todo
 import com.example.todo.presentation.MainViewModel
 import com.example.todo.presentation.common.toastMessage
+import com.example.todo.ui.theme.ButtonColor
+import com.example.todo.ui.theme.NonPrimary
+import com.example.todo.ui.theme.Primary
 import kotlinx.coroutines.job
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AlertDialog_HomeScreen(
     openDialog: Boolean,
@@ -70,11 +67,7 @@ fun AlertDialog_HomeScreen(
     
     if (openDialog) {
         AlertDialog(
-            containerColor = Color(
-                red = 207,
-                green = 231,
-                blue = 223
-            ),
+            containerColor = NonPrimary,
             title = {
                         Text(
                             text = stringResource(id = R.string.todo_main),
@@ -124,42 +117,18 @@ fun AlertDialog_HomeScreen(
                                 Icon(
                                     imageVector = Icons.Rounded.Clear,
                                     contentDescription = null,
-                                    tint = Color(
-                                        red = 37,
-                                        green = 113,
-                                        blue = 87,
-                                    )
+                                    tint = Primary
                                 )
 
                             }
                         },
                         textStyle = MaterialTheme.typography.labelLarge,
                         colors = TextFieldDefaults.colors(
-                            cursorColor = Color(
-                                red = 37,
-                                green = 113,
-                                blue = 87,
-                            ),
-                            focusedIndicatorColor = Color(
-                                red = 37,
-                                green = 113,
-                                blue = 87,
-                            ),
-                            focusedContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
-                            unfocusedContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
-                            disabledContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
+                            cursorColor = Primary,
+                            focusedIndicatorColor = Primary,
+                            focusedContainerColor = NonPrimary ,
+                            unfocusedContainerColor = NonPrimary,
+                            disabledContainerColor = NonPrimary,
                         )
 
 
@@ -199,11 +168,7 @@ fun AlertDialog_HomeScreen(
                                 Icon(
                                     imageVector = Icons.Rounded.Clear,
                                     contentDescription = null,
-                                    tint = Color(
-                                        red = 37,
-                                        green = 113,
-                                        blue = 87,
-                                    )
+                                    tint = Primary
 
                                 )
 
@@ -211,31 +176,11 @@ fun AlertDialog_HomeScreen(
                         },
                         textStyle = MaterialTheme.typography.labelLarge,
                         colors = TextFieldDefaults.colors(
-                            cursorColor = Color(
-                                red = 37,
-                                green = 113,
-                                blue = 87,
-                            ),
-                            focusedIndicatorColor = Color(
-                                red = 37,
-                                green = 113,
-                                blue = 87,
-                            ),
-                            focusedContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
-                            unfocusedContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
-                            disabledContainerColor = Color(
-                                red = 207,
-                                green = 231,
-                                blue = 223
-                            ),
+                            cursorColor = Primary,
+                            focusedIndicatorColor = Primary,
+                            focusedContainerColor = NonPrimary,
+                            unfocusedContainerColor = NonPrimary,
+                            disabledContainerColor = NonPrimary,
                         )
 
                     )
@@ -256,11 +201,7 @@ fun AlertDialog_HomeScreen(
                             checked = isImportant ,
                             onCheckedChange = {isImportant = it},
                             colors = CheckboxDefaults.colors(
-                                checkedColor = Color(
-                                    red = 15,
-                                    green = 77,
-                                    blue = 58
-                                )
+                                checkedColor = ButtonColor
                             )
                         )
                     }
@@ -289,13 +230,7 @@ fun AlertDialog_HomeScreen(
                     )
                 }
                 },
-                    colors = ButtonDefaults.buttonColors(
-                        Color(
-                            red = 15,
-                            green = 77,
-                            blue = 58
-                        )
-                    )
+                    colors = ButtonDefaults.buttonColors(ButtonColor)
                 ) {
                     Text(text = stringResource(id = R.string.save ))
                 }
@@ -309,14 +244,11 @@ fun AlertDialog_HomeScreen(
                 }) {
                     Text(
                         text = stringResource(id = R.string.close),
-                        color = Color(
-                                red = 15,
-                                green = 77,
-                                blue = 58
-                        )
+                        color = ButtonColor
                     )
                 }
             }
         )
     }
 }
+

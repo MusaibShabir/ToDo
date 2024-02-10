@@ -15,9 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.todo.ui.theme.ButtonColor
 import com.example.todo.ui.theme.ToDoTheme
 
 @Composable
@@ -30,13 +30,7 @@ fun BottomButton(
             .size(width = 544.dp, height = 80.dp)
             .padding(horizontal = 10.dp)
             .padding(bottom = 5.dp, top = 10.dp),
-        colors = ButtonDefaults.buttonColors(
-            Color(
-                red = 15,
-                green = 77,
-                blue = 58
-            )
-        )
+        colors = ButtonDefaults.buttonColors(ButtonColor)
     ){
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(imageVector = Icons.Filled.Add, contentDescription = null)
