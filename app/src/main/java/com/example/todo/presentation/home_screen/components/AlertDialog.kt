@@ -80,20 +80,12 @@ fun AlertDialog_HomeScreen(
                         focusRequester.requestFocus()
                     }
                 })
-                Column(modifier = Modifier.fillMaxWidth()){
-                    TextField(
+                Column(modifier = Modifier.fillMaxWidth())
+                {
+                    AlertBoxTextField(
+                        label = stringResource(id = R.string.add_task_title),
                         value = taskTitle,
-                        onValueChange = {taskTitle = it},
-                        placeholder = {
-                            Text(
-                                text = stringResource(id = R.string.add_task_title ),
-                                style = MaterialTheme.typography.labelLarge
-
-
-                            )
-                        },
-                        shape = RectangleShape,
-                        modifier = Modifier.focusRequester(focusRequester),
+                        onValueChange = { taskTitle = it },
                         keyboardOptions = KeyboardOptions(
                             capitalization = KeyboardCapitalization.Sentences,
                             imeAction = ImeAction.Done
@@ -105,45 +97,17 @@ fun AlertDialog_HomeScreen(
                                     isImportant = false
                                     onClose()
                                 } else {
-                                    toastMessage(
-                                        context,
-                                        "Empty Task!"
-                                    )
+                                    toastMessage(context, "Empty Task!")
                                 }
                             }
                         ),
-                        trailingIcon = {
-                            IconButton(onClick = { taskTitle = ""}) {
-                                Icon(
-                                    imageVector = Icons.Rounded.Clear,
-                                    contentDescription = null,
-                                    tint = Primary
-                                )
-
-                            }
-                        },
-                        textStyle = MaterialTheme.typography.labelLarge,
-                        colors = TextFieldDefaults.colors(
-                            cursorColor = Primary,
-                            focusedIndicatorColor = Primary,
-                            focusedContainerColor = NonPrimary ,
-                            unfocusedContainerColor = NonPrimary,
-                            disabledContainerColor = NonPrimary,
-                        )
-
-
+                        focusRequester = focusRequester,
                     )
                     Spacer(modifier = Modifier.height(10.dp))
-                    TextField(
+                    AlertBoxTextField(
+                        label = stringResource(id = R.string.add_task),
                         value = task,
-                        onValueChange = {task = it},
-                        placeholder = {
-                            Text(
-                                text = stringResource(id = R.string.add_task),
-                                style = MaterialTheme.typography.labelLarge
-                            )
-                        },
-                        shape = RectangleShape,
+                        onValueChange = { task = it },
                         keyboardOptions = KeyboardOptions(
                             capitalization = KeyboardCapitalization.Sentences,
                             imeAction = ImeAction.Default
@@ -151,38 +115,16 @@ fun AlertDialog_HomeScreen(
                         keyboardActions = KeyboardActions(
                             onDone = {
                                 if (task.isNotBlank()) {
-                                    mainViewModel.insertTodo(todo = todo)
+                                    mainViewModel.insertTodo(todo)
                                     task = ""
                                     isImportant = false
                                     onClose()
                                 } else {
-                                    toastMessage(
-                                        context,
-                                        "Empty Task!"
-                                    )
+                                    toastMessage(context, "Empty Task!")
                                 }
                             }
                         ),
-                        trailingIcon = {
-                            IconButton(onClick = { task = ""}) {
-                                Icon(
-                                    imageVector = Icons.Rounded.Clear,
-                                    contentDescription = null,
-                                    tint = Primary
-
-                                )
-                            }
-                        },
-                        textStyle = MaterialTheme.typography.labelLarge,
-                        colors = TextFieldDefaults.colors(
-                            cursorColor = Primary,
-                            focusedIndicatorColor = Primary,
-                            focusedContainerColor = NonPrimary,
-                            unfocusedContainerColor = NonPrimary,
-                            disabledContainerColor = NonPrimary,
-                        )
                     )
-
                     Row (
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -250,3 +192,41 @@ fun AlertDialog_HomeScreen(
     }
 }
 
+@Composable
+fun AlertBoxTextField(
+    label: String,
+    value: String,
+    onValueChange: (String) -> Unit,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    focusRequester: FocusRequester? = null,
+) {
+    TextField(
+        value = value,
+        onValueChange = onValueChange,
+        placeholder = { Text(text = label, style = MaterialTheme.typography.labelLarge) },
+        shape = RectangleShape,
+        modifier = focusRequester?.let { Modifier.focusRequester(it) } ?: Modifier,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        trailingIcon = {
+            var clearValue by remember { mutableStateOf("") }
+            IconButton(onClick = { clearValue = "" }) {
+                Icon(
+                    imageVector = Icons.Rounded.Clear,
+                    contentDescription = null,
+                    tint = Primary
+                )
+            }
+        },
+        textStyle = MaterialTheme.typography.labelLarge,
+        colors = TextFieldDefaults.colors(
+            cursorColor = Primary,
+            focusedIndicatorColor = Primary,
+            focusedLabelColor = Primary,
+            focusedContainerColor = NonPrimary,
+            unfocusedContainerColor = NonPrimary,
+            disabledContainerColor = NonPrimary,
+        )
+    )
+}
