@@ -15,9 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.todo.ui.theme.NonPrimary
 
 @Composable
 fun AppNameCard() {
@@ -36,13 +36,7 @@ fun AppNameCard() {
             modifier = Modifier
                 .size(width = 200.dp, height = 55.dp),
             shape = RoundedCornerShape(80f),
-            colors = CardDefaults.cardColors(
-                Color(
-                    red = 207,
-                    green = 231,
-                    blue = 223
-                )
-            )
+            colors = CardDefaults.cardColors(NonPrimary)
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),

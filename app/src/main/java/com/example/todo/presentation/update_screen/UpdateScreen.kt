@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
-import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
@@ -29,16 +28,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todo.R
 import com.example.todo.presentation.MainViewModel
+import com.example.todo.ui.theme.ButtonColor
+import com.example.todo.ui.theme.NonPrimary
+import com.example.todo.ui.theme.Primary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -107,31 +107,11 @@ fun UpdateScreen(
                 ),
                 textStyle = MaterialTheme.typography.labelLarge,
                 colors = TextFieldDefaults.colors(
-                    cursorColor = Color(
-                        red = 37,
-                        green = 113,
-                        blue = 87,
-                    ),
-                    focusedIndicatorColor = Color(
-                        red = 37,
-                        green = 113,
-                        blue = 87,
-                    ),
-                    focusedContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
-                    unfocusedContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
-                    disabledContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
+                    cursorColor = Primary,
+                    focusedIndicatorColor = Primary,
+                    focusedContainerColor = NonPrimary,
+                    unfocusedContainerColor = NonPrimary,
+                    disabledContainerColor = NonPrimary,
                 )
             )
             Spacer(modifier = Modifier.size(8.dp))
@@ -154,31 +134,11 @@ fun UpdateScreen(
                 ),
                 textStyle = MaterialTheme.typography.labelLarge,
                 colors = TextFieldDefaults.colors(
-                    cursorColor = Color(
-                        red = 37,
-                        green = 113,
-                        blue = 87,
-                    ),
-                    focusedIndicatorColor = Color(
-                        red = 37,
-                        green = 113,
-                        blue = 87,
-                    ),
-                    focusedContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
-                    unfocusedContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
-                    disabledContainerColor = Color(
-                        red = 207,
-                        green = 231,
-                        blue = 223
-                    ),
+                    cursorColor = Primary,
+                    focusedIndicatorColor = Primary,
+                    focusedContainerColor = NonPrimary,
+                    unfocusedContainerColor = NonPrimary,
+                    disabledContainerColor = NonPrimary,
                 )
             )
 
@@ -198,11 +158,7 @@ fun UpdateScreen(
                         mainViewModel.isImportant(newValue = newValue)
                     },
                     colors = CheckboxDefaults.colors(
-                        checkedColor = Color(
-                            red = 15,
-                            green = 77,
-                            blue = 58
-                        )
+                        checkedColor = ButtonColor
                     )
                 )
             }
@@ -211,13 +167,7 @@ fun UpdateScreen(
                 mainViewModel.updateTodo(mainViewModel.todo)
                 onBack()
             },
-                colors = ButtonDefaults.buttonColors(
-                    Color(
-                        red = 15,
-                        green = 77,
-                        blue = 58
-                    )
-                )
+                colors = ButtonDefaults.buttonColors(ButtonColor)
             ) {
                 Text(
                     text = "SaveTask",

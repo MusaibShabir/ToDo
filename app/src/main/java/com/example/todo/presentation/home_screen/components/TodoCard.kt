@@ -31,6 +31,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.todo.domain.model.Todo
+import com.example.todo.ui.theme.ButtonColor
+import com.example.todo.ui.theme.NonPrimary
+import com.example.todo.ui.theme.Primary
 import com.example.todo.ui.theme.ToDoTheme
 
 @Composable
@@ -45,13 +48,7 @@ fun TodoCard(
         modifier = modifier
             .padding(horizontal = 10.dp, vertical = 5.dp),
         shape = CardDefaults.elevatedShape,
-        colors = CardDefaults.cardColors(
-            Color(
-                red = 207,
-                green = 231,
-                blue = 223
-            )
-        ),
+        colors = CardDefaults.cardColors(NonPrimary),
         elevation = CardDefaults.cardElevation(),
     ) {
         Column(
@@ -75,11 +72,7 @@ fun TodoCard(
                     Icon(
                         imageVector = Icons.Outlined.Star,
                         contentDescription = null,
-                        tint = Color(
-                            red = 37,
-                            green = 113,
-                            blue = 87,
-                        )
+                        tint = Primary
                     )
                 }
 
@@ -113,11 +106,7 @@ fun TodoCard(
                     Icon(
                         imageVector = Icons.Outlined.Edit,
                         contentDescription = null,
-                        tint = Color(
-                            red = 37,
-                            green = 113,
-                            blue = 87,
-                        ),
+                        tint = Primary,
                         modifier = modifier.clickable { onUpdate(todo.id) }
                     )
                 }
@@ -130,13 +119,7 @@ fun TodoCard(
             {
                 Button(
                     onClick = { onDone() },
-                    colors = ButtonDefaults.buttonColors(
-                        Color(
-                            red = 15,
-                            green = 77,
-                            blue = 58
-                        )
-                    ),
+                    colors = ButtonDefaults.buttonColors(ButtonColor),
                     elevation = ButtonDefaults.buttonElevation(20.dp),
                 ) {
                     Icon(
