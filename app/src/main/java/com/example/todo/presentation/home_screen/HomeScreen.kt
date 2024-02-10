@@ -26,7 +26,7 @@ fun HomeScreen(
         contentScale = ContentScale.FillBounds,
         modifier = Modifier
             .fillMaxSize()
-            .alpha(0.1f) // Adjust alpha as needed
+            .alpha(0.1f)
     )
     Home_Scaffold(mainViewModel, onUpdate)
 

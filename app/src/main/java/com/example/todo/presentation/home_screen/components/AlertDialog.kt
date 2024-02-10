@@ -171,7 +171,6 @@ fun AlertDialog_HomeScreen(
                                     tint = Primary
 
                                 )
-
                             }
                         },
                         textStyle = MaterialTheme.typography.labelLarge,
@@ -182,7 +181,6 @@ fun AlertDialog_HomeScreen(
                             unfocusedContainerColor = NonPrimary,
                             disabledContainerColor = NonPrimary,
                         )
-
                     )
 
                     Row (

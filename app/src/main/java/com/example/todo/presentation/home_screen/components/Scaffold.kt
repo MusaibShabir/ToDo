@@ -22,6 +22,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.todo.presentation.MainViewModel
 import com.example.todo.presentation.common.mySnackbar
 
+
 @Composable
 fun Home_Scaffold(
     mainViewModel: MainViewModel,
@@ -66,10 +67,9 @@ fun Home_Scaffold(
                             mySnackbar(
                                 scope = scope,
                                 snackbarHostState = snackbarHostState,
-                                msg = "DONE -> \${todo.task}\"",
+                                msg = "DONE",
                                 actionLabel = "UNDO",
-                                onAction = { mainViewModel.undoDeletedTodo() }
-                            )
+                            ) { mainViewModel.undoDeletedTodo() }
                         },
                         onUpdate = onUpdate,
                         modifier = Modifier

@@ -15,8 +15,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.todo.R
 import com.example.todo.ui.theme.ButtonColor
 import com.example.todo.ui.theme.ToDoTheme
 
@@ -36,7 +38,7 @@ fun BottomButton(
             Icon(imageVector = Icons.Filled.Add, contentDescription = null)
             Spacer(modifier = Modifier.width(8.dp))
             Text(
-                text = "Add Task",
+                text =  stringResource(id = R.string.add_task),
                 style = MaterialTheme.typography.labelLarge
             )
         }
