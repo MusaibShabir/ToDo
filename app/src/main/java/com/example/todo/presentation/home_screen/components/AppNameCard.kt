@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.todo.R
-import com.example.todo.ui.theme.NonPrimary
 
 @Composable
 fun AppNameCard() {
@@ -31,14 +30,11 @@ fun AppNameCard() {
         horizontalArrangement = Arrangement.Center,
 
     ){
-
-
-
         Card(
             modifier = Modifier
                 .size(width = 200.dp, height = 55.dp),
             shape = RoundedCornerShape(80f),
-            colors = CardDefaults.cardColors(NonPrimary)
+            colors = CardDefaults.cardColors(MaterialTheme.colorScheme.tertiary)
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),
@@ -47,12 +43,12 @@ fun AppNameCard() {
 
                 Text(
                     text = stringResource(id = R.string.home_name),
-                    style = MaterialTheme.typography.displaySmall
+                    style = MaterialTheme.typography.displaySmall,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
             }
         }
     }
-
 }
 
 @Preview(showBackground = true, showSystemUi = true)

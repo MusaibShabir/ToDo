@@ -36,9 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.todo.R
 import com.example.todo.presentation.MainViewModel
-import com.example.todo.ui.theme.ButtonColor
-import com.example.todo.ui.theme.NonPrimary
-import com.example.todo.ui.theme.Primary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,7 +61,8 @@ fun UpdateScreen(
             TopAppBar(title = {
                 Text(
                     text = stringResource(id = R.string.update_todo),
-                    style = MaterialTheme.typography.headlineSmall
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = MaterialTheme.colorScheme.onBackground
                 )
                 
             },
@@ -79,7 +77,6 @@ fun UpdateScreen(
                 }
             )
         }
-        
     ) {paddingValues ->
         Column(
             modifier = Modifier
@@ -98,7 +95,8 @@ fun UpdateScreen(
                     Text(
                         text = stringResource(id = R.string.task_title),
                         style = MaterialTheme.typography.labelLarge,
-                        fontWeight = FontWeight.SemiBold
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 },
                 shape = RectangleShape,
@@ -107,11 +105,12 @@ fun UpdateScreen(
                 ),
                 textStyle = MaterialTheme.typography.labelLarge,
                 colors = TextFieldDefaults.colors(
-                    cursorColor = Primary,
-                    focusedIndicatorColor = Primary,
-                    focusedContainerColor = NonPrimary,
-                    unfocusedContainerColor = NonPrimary,
-                    disabledContainerColor = NonPrimary,
+                    cursorColor = MaterialTheme.colorScheme.primary,
+                    focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary,
+                    focusedContainerColor = MaterialTheme.colorScheme.tertiary,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.tertiary,
+                    disabledContainerColor = MaterialTheme.colorScheme.tertiary,
                 )
             )
             Spacer(modifier = Modifier.size(8.dp))
@@ -134,11 +133,12 @@ fun UpdateScreen(
                 ),
                 textStyle = MaterialTheme.typography.labelLarge,
                 colors = TextFieldDefaults.colors(
-                    cursorColor = Primary,
-                    focusedIndicatorColor = Primary,
-                    focusedContainerColor = NonPrimary,
-                    unfocusedContainerColor = NonPrimary,
-                    disabledContainerColor = NonPrimary,
+                    cursorColor = MaterialTheme.colorScheme.primary,
+                    focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+                    focusedLabelColor = MaterialTheme.colorScheme.primary,
+                    focusedContainerColor = MaterialTheme.colorScheme.tertiary,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.tertiary,
+                    disabledContainerColor = MaterialTheme.colorScheme.tertiary,
                 )
             )
 
@@ -158,7 +158,8 @@ fun UpdateScreen(
                         mainViewModel.isImportant(newValue = newValue)
                     },
                     colors = CheckboxDefaults.colors(
-                        checkedColor = ButtonColor
+                        checkedColor = MaterialTheme.colorScheme.primary,
+                        checkmarkColor = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 )
             }
@@ -167,11 +168,12 @@ fun UpdateScreen(
                 mainViewModel.updateTodo(mainViewModel.todo)
                 onBack()
             },
-                colors = ButtonDefaults.buttonColors(ButtonColor)
+                colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
             ) {
                 Text(
                     text = stringResource(id = R.string.save_task),
-                    fontSize = 16.sp
+                    fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
             }
         }

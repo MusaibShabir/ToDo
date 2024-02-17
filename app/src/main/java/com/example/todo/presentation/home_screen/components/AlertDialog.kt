@@ -44,9 +44,6 @@ import com.example.todo.R
 import com.example.todo.domain.model.Todo
 import com.example.todo.presentation.MainViewModel
 import com.example.todo.presentation.common.toastMessage
-import com.example.todo.ui.theme.ButtonColor
-import com.example.todo.ui.theme.NonPrimary
-import com.example.todo.ui.theme.Primary
 import kotlinx.coroutines.job
 
 
@@ -67,7 +64,7 @@ fun AlertDialog_HomeScreen(
     
     if (openDialog) {
         AlertDialog(
-            containerColor = NonPrimary,
+            containerColor = MaterialTheme.colorScheme.tertiary,
             title = {
                         Text(
                             text = stringResource(id = R.string.todo_main),
@@ -141,7 +138,8 @@ fun AlertDialog_HomeScreen(
                             checked = isImportant ,
                             onCheckedChange = {isImportant = it},
                             colors = CheckboxDefaults.colors(
-                                checkedColor = ButtonColor
+                                checkedColor = MaterialTheme.colorScheme.primary,
+                                checkmarkColor = MaterialTheme.colorScheme.onPrimaryContainer
                             )
                         )
                     }
@@ -170,9 +168,12 @@ fun AlertDialog_HomeScreen(
                     )
                 }
                 },
-                    colors = ButtonDefaults.buttonColors(ButtonColor)
+                    colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary)
                 ) {
-                    Text(text = stringResource(id = R.string.save ))
+                    Text(
+                        text = stringResource(id = R.string.save ),
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
+                    )
                 }
             },
             dismissButton = {
@@ -184,7 +185,7 @@ fun AlertDialog_HomeScreen(
                 }) {
                     Text(
                         text = stringResource(id = R.string.close),
-                        color = ButtonColor
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 }
             }
@@ -215,18 +216,18 @@ fun AlertBoxTextField(
                 Icon(
                     imageVector = Icons.Rounded.Clear,
                     contentDescription = null,
-                    tint = Primary
+                    tint = MaterialTheme.colorScheme.secondary
                 )
             }
         },
         textStyle = MaterialTheme.typography.labelLarge,
         colors = TextFieldDefaults.colors(
-            cursorColor = Primary,
-            focusedIndicatorColor = Primary,
-            focusedLabelColor = Primary,
-            focusedContainerColor = NonPrimary,
-            unfocusedContainerColor = NonPrimary,
-            disabledContainerColor = NonPrimary,
+            cursorColor = MaterialTheme.colorScheme.primary,
+            focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+            focusedLabelColor = MaterialTheme.colorScheme.primary,
+            focusedContainerColor = MaterialTheme.colorScheme.tertiary,
+            unfocusedContainerColor = MaterialTheme.colorScheme.tertiary,
+            disabledContainerColor = MaterialTheme.colorScheme.tertiary,
         )
     )
 }

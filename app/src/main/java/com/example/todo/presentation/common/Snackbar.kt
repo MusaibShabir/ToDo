@@ -19,7 +19,7 @@ fun mySnackbar(
         val snackbarResult: SnackbarResult = snackbarHostState.showSnackbar(
             message = msg,
             actionLabel = actionLabel,
-            duration = SnackbarDuration.Short
+            duration = SnackbarDuration.Short,
         )
 
         when(snackbarResult) {

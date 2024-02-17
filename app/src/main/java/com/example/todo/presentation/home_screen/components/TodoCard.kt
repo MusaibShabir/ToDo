@@ -33,9 +33,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.todo.R
 import com.example.todo.domain.model.Todo
-import com.example.todo.ui.theme.ButtonColor
-import com.example.todo.ui.theme.NonPrimary
-import com.example.todo.ui.theme.Primary
 import com.example.todo.ui.theme.ToDoTheme
 
 @Composable
@@ -50,7 +47,7 @@ fun TodoCard(
         modifier = modifier
             .padding(horizontal = 10.dp, vertical = 5.dp),
         shape = CardDefaults.elevatedShape,
-        colors = CardDefaults.cardColors(NonPrimary),
+        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.tertiary),
         elevation = CardDefaults.cardElevation(),
     ) {
         Column(
@@ -69,12 +66,13 @@ fun TodoCard(
                     text = todo.taskTitle,
                     style = MaterialTheme.typography.headlineSmall,
                     maxLines = 1,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
                 if (todo.isImportant) {
                     Icon(
                         imageVector = Icons.Outlined.Star,
                         contentDescription = null,
-                        tint = Primary
+                        tint = MaterialTheme.colorScheme.secondary
                     )
                 }
 
@@ -95,7 +93,8 @@ fun TodoCard(
                     Text(
                         text = todo.task,
                         style = MaterialTheme.typography.labelSmall,
-                        maxLines = 3
+                        maxLines = 3,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 }
                 Spacer(modifier = modifier.height(10.dp))
@@ -108,7 +107,7 @@ fun TodoCard(
                     Icon(
                         imageVector = Icons.Outlined.Edit,
                         contentDescription = null,
-                        tint = Primary,
+                        tint = MaterialTheme.colorScheme.secondary,
                         modifier = modifier.clickable { onUpdate(todo.id) }
                     )
                 }
@@ -121,7 +120,7 @@ fun TodoCard(
             {
                 Button(
                     onClick = { onDone() },
-                    colors = ButtonDefaults.buttonColors(ButtonColor),
+                    colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary),
                     elevation = ButtonDefaults.buttonElevation(20.dp),
                 ) {
                     Icon(
