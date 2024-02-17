@@ -6,7 +6,7 @@ ensuring fast and reliable access to your tasks even when offline.
 
 ## Screenshots
 <img src="screenshots/light_theme_frame.png" alt="Screenshot">
-<img src="screenshots/dark_theme_frame.png" alt="Screenshot">
+
 
 
 
