@@ -149,7 +149,9 @@ fun TodoCard(
 @Composable
 fun Show() {
     ToDoTheme {
-        TodoCard(todo = Todo(0,"Musaib", "dfkjvndkfjvndfv", true), onUpdate = {}, onDone = {}, modifier = Modifier)
-
+        TodoCard(
+            todo = Todo(0,"Musaib", "dfkjvndkfjvndfv", true),
+            onUpdate = {}, onDone = {}, modifier = Modifier
+        )
     }
 }
