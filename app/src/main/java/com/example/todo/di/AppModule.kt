@@ -2,9 +2,9 @@ package com.example.todo.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.todo.data.local.TodoDao
-import com.example.todo.data.local.TodoDatabase
-import com.example.todo.data.repository.TodoRepository
+import com.example.todo.presentation.home_screen.data.local.TodoDao
+import com.example.todo.presentation.home_screen.data.local.TodoDatabase
+import com.example.todo.presentation.home_screen.data.repository.TodoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
