@@ -1,6 +1,6 @@
 [versions]
-activityComposeVersion = "1.9.0"
-composeBomVersion = "2024.06.00"
+activityComposeVersion = "1.9.2"
+composeBomVersion = "2024.09.03"
 coreKtxVersion = "1.13.1"
 espressoCore = "3.6.1"
 hiltAndroidVersion = "2.51.1"
