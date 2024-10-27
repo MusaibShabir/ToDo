@@ -1,5 +1,5 @@
 [versions]
-activityComposeVersion = "1.9.2"
+activityComposeVersion = "1.9.3"
 composeBomVersion = "2024.10.00"
 coreKtxVersion = "1.13.1"
 espressoCore = "3.6.1"
