@@ -10,7 +10,7 @@ junitVersion = "1.2.1"
 lifecycleRuntimeComposeVersion = "2.8.6"
 navigationComposeVersion = "2.8.3"
 roomCompilerVersion = "2.6.1"
-uiTestManifestVersion = "1.6.8"
+uiTestManifestVersion = "1.7.4"
 
 
 
